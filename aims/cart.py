@@ -23,3 +23,11 @@ class Cart:
 
     def total_cost(self):
         return sum(d.cost for d in self.items)
+
+    def print_cart(self):
+        print("*********************** CART ***********************")
+        print("Ordered Items:")
+        for i, dvd in enumerate(self.items, start=1):
+            print(f"{i}. {dvd}")
+        print(f"Total cost: {self.total_cost():.2f} $")
+        print("****************************************************")
