@@ -10,6 +10,12 @@ Mọi thay đổi đáng chú ý của AIMS-mini được ghi tại đây.
 ### Added
 - `Cart.sort_by_title()` và `Cart.sort_by_cost()`.
 - `aims.search.search_by_category()`.
+### Fixed
+- `search_by_title` không phân biệt hoa thường (#28, cùng bản sửa với 1.0.1).
+
+## [1.0.1] - 2026-11-05
+### Fixed
+- `search_by_title` phân biệt hoa thường: tìm "lion" không ra "The Lion King" (#28).
 
 ## [1.0.0] - 2026-11-05
 Phiên bản ổn định đầu tiên. API công khai được cam kết tương thích theo SemVer:
@@ -42,6 +48,7 @@ Phiên bản ổn định đầu tiên. API công khai được cam kết tươn
 
 [Unreleased]: https://github.com/minhpham1512/it3180-202416279-aims/compare/v1.1.0...HEAD
 [1.1.0]: https://github.com/minhpham1512/it3180-202416279-aims/compare/v1.0.0...v1.1.0
+[1.0.1]: https://github.com/minhpham1512/it3180-202416279-aims/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/minhpham1512/it3180-202416279-aims/compare/v0.3.0...v1.0.0
 [0.3.0]: https://github.com/minhpham1512/it3180-202416279-aims/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/minhpham1512/it3180-202416279-aims/compare/v0.1.0...v0.2.0
