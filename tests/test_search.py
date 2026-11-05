@@ -15,3 +15,7 @@ class TestSearch(unittest.TestCase):
     def test_search_by_title(self):
         result = search_by_title(self.items, "Star")
         self.assertEqual([d.title for d in result], ["Star Wars"])
+
+    def test_search_by_title_is_case_insensitive(self):
+        result = search_by_title(self.items, "lion")
+        self.assertEqual([d.title for d in result], ["The Lion King"])
