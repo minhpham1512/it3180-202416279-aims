@@ -1,7 +1,7 @@
 import unittest
 
 from aims.dvd import DigitalVideoDisc
-from aims.search import search_by_title
+from aims.search import search_by_category, search_by_title
 
 
 class TestSearch(unittest.TestCase):
@@ -11,6 +11,10 @@ class TestSearch(unittest.TestCase):
             DigitalVideoDisc("Star Wars", "Science Fiction"),
             DigitalVideoDisc("Aladdin", "Animation"),
         ]
+
+    def test_search_by_category(self):
+        result = search_by_category(self.items, "animation")
+        self.assertEqual([d.title for d in result], ["The Lion King", "Aladdin"])
 
     def test_search_by_title(self):
         result = search_by_title(self.items, "Star")

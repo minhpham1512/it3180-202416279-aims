@@ -7,6 +7,7 @@ Mọi thay đổi đáng chú ý của AIMS-mini được ghi tại đây.
 ## [Unreleased]
 ### Added
 - `Cart.sort_by_title()` và `Cart.sort_by_cost()`.
+- `aims.search.search_by_category()`.
 
 ## [1.0.0] - 2026-11-05
 Phiên bản ổn định đầu tiên. API công khai được cam kết tương thích theo SemVer:
