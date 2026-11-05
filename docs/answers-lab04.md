@@ -71,3 +71,67 @@ với việc cần giữ **nhiều bản phát hành sống song song** (mỗi t
   phát hành; đầu nhánh luôn là bản mới nhất của dòng 1.0.x (1.0.0 → 1.0.1).
 - Tag không tự đi theo `git push`, phải `git push origin <tag>`; tag đã chia sẻ
   thì không xóa/không di chuyển (sai thì phát hành số mới).
+
+## Phụ lục: kết quả thực hiện Lab 04 (Phần F – Status accounting, Phần G – Kiểm toán)
+
+Chạy ngay sau khi merge `feature/sort-cart` (PR #22):
+
+```
+$ git log --oneline release/lab04..master
+0e76052 Merge pull request #22 from minhpham1512/feature/sort-cart
+42a0e1b feat: add sort_by_title and sort_by_cost to Cart
+$ git log --oneline master..release/lab04   # kỳ vọng rỗng
+(rỗng)
+$ git diff --stat v0.3.0 v1.0.0
+ CHANGELOG.md          | 42 +++++++++++++++++++++++++++++
+ aims/__init__.py      |  1 +
+ docs/answers-lab04.md | 73 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ main.py               |  3 +++
+ 4 files changed, 119 insertions(+)
+$ git diff --stat v1.0.0 master
+ CHANGELOG.md       |  2 ++
+ aims/cart.py       |  8 ++++++++
+ tests/test_cart.py | 17 +++++++++++++++++
+ 3 files changed, 27 insertions(+)
+$ git describe --tags (trên master)
+v1.0.0-2-g0e76052
+$ git log --oneline --no-merges v0.3.0..v1.0.0
+09ec463 docs: answer lab04 discussion questions
+c40cb59 docs: list only 1.0.0 changes in its changelog entry
+350a598 chore: prepare release 1.0.0
+$ git show v1.0.0:aims/__init__.py
+__version__ = "1.0.0"
+$ git ls-tree -r --name-only v1.0.0
+.gitattributes
+.github/pull_request_template.md
+.gitignore
+CHANGELOG.md
+README.md
+aims/__init__.py
+aims/cart.py
+aims/dvd.py
+aims/search.py
+docs/answers-lab01.md
+docs/answers-lab02.md
+docs/answers-lab03.md
+docs/answers-lab04.md
+docs/use-case.md
+main.py
+tests/test_cart.py
+tests/test_search.py
+$ git grep -c sort_by_cost master / release/lab04
+origin/master:aims/cart.py:1
+release/lab04: không có sort_by_cost
+$ git rev-parse v1.0.0^{commit} origin/release/lab04
+a7214f1
+a7214f1
+```
+
+Kiểm toán cấu hình `v1.0.0`:
+
+- `git switch --detach v0.2.0 && python main.py` → `Total cost: 63.89 $` (tái tạo được bản cũ).
+- `git worktree add ../aims-v1.0.0 v1.0.0` → `AIMS-mini v1.0.0`, `Ran 4 tests ... OK`.
+- `git archive --format=zip --prefix=aims-1.0.0/ -o ../aims-1.0.0.zip v1.0.0` → tạo được gói 15 KB.
+- CHANGELOG `[1.0.0]` khớp mã nguồn; `git show v1.0.0:aims/__init__.py` → `1.0.0`; `git ls-tree` không có tệp rác (`__pycache__/`...).
+- Rule `release/*` (repository ruleset): push thẳng `release/lab04` bị từ chối `GH013 ... Changes must be made through a pull request`.
+- GitHub Release: https://github.com/minhpham1512/it3180-202416279-aims/releases/tag/v1.0.0
