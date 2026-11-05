@@ -42,7 +42,7 @@ riêng thì dùng `git push --force-with-lease` (không dùng `--force`).
 Cả hai đều tạo từ `master`, merge về `master` qua PR; khác nhau ở **mục đích**,
 giúp người đọc lịch sử biết ngay nhánh làm gì ("một nhánh, một mục đích").
 
-## 4. So sánh 3 kiểu merge (minh họa trong repo)
+## 4. So sánh 3 kiểu merge (minh họa ngay trong repo này)
 
 | PR | Kiểu merge | Kết quả trên `master` |
 |---|---|---|
