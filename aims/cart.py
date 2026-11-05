@@ -22,7 +22,7 @@ class Cart:
         return False
 
     def total_cost(self):
-        return sum(d.cost for d in self.items)
+        return sum(d.cost for d in self.items) + 1  # cố ý làm hỏng
 
     def total_cost_with_discount(self, percent):
         if not 0 <= percent <= 100:
