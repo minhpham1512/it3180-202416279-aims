@@ -1,5 +1,8 @@
+from aims import __version__
 from aims.dvd import DigitalVideoDisc
 from aims.cart import Cart
+
+print(f"AIMS-mini v{__version__}")
 
 cart = Cart()
 cart.add_dvd(DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95))
