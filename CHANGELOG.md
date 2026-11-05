@@ -5,6 +5,8 @@ Mọi thay đổi đáng chú ý của AIMS-mini được ghi tại đây.
 đánh số phiên bản theo [Semantic Versioning](https://semver.org/lang/vi/).
 
 ## [Unreleased]
+
+## [1.1.0] - 2026-11-05
 ### Added
 - `Cart.sort_by_title()` và `Cart.sort_by_cost()`.
 - `aims.search.search_by_category()`.
@@ -38,7 +40,8 @@ Phiên bản ổn định đầu tiên. API công khai được cam kết tươn
 ### Changed
 - Tổ chức mã nguồn thành package `aims`.
 
-[Unreleased]: https://github.com/minhpham1512/it3180-202416279-aims/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/minhpham1512/it3180-202416279-aims/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/minhpham1512/it3180-202416279-aims/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/minhpham1512/it3180-202416279-aims/compare/v0.3.0...v1.0.0
 [0.3.0]: https://github.com/minhpham1512/it3180-202416279-aims/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/minhpham1512/it3180-202416279-aims/compare/v0.1.0...v0.2.0
